@@ -12,7 +12,7 @@ public class GetItemWithDetailsQueryHandler:IRequestHandler<GetItemWithDetailsQu
     }
     public async Task<ItemDetailsDto> Handle(GetItemWithDetailsQuery request, CancellationToken cancellationToken)
     {
-        var item =await _itemRepository.GetAsync(request.Id);
+        var item =await _itemRepository.GetItemWithDetails(request.Id);
 
         if (item == null)
             throw new NotFoundException(nameof(Domain.Item.Item), request.Id);

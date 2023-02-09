@@ -30,6 +30,11 @@ public class ExceptionMiddleware
                 problem = GetProblemDetails("A Not found exception occurred", notFoundException, statusCode,
                     nameof(NotFoundException));
                 break;
+            case BadRequestException badRequestException:
+                statusCode = (int) HttpStatusCode.BadRequest;
+                problem = GetProblemDetails("A bad request exception occurred", badRequestException, statusCode,
+                    nameof(BadRequestException));
+                break;
             default:
                 problem = GetProblemDetails("A server exception occurred", exception, statusCode,
                     nameof(HttpStatusCode.InternalServerError));
@@ -46,11 +51,11 @@ public class ExceptionMiddleware
         {
             Title = title,
             Status = statusCode,
-            Detail = GetInnerExceptionMessage(exception),
+            Detail = GetExceptionDetails(exception),
             Type = typeOfException
         };
     }
 
-    private string GetInnerExceptionMessage(Exception exception) =>
+    private string GetExceptionDetails(Exception exception) =>
         exception.InnerException != null ? exception.InnerException.Message : exception.Message;
 }

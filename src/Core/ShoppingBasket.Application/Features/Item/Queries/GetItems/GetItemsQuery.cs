@@ -1,3 +1,3 @@
 namespace ShoppingBasket.Application.Features.Item.Queries.GetItems;
 
-public record GetItemsQuery:IRequest<List<ItemDto>>;
+public record GetItemsQuery(string Currency):IRequest<List<ItemDto>>;
