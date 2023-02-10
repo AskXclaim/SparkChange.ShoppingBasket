@@ -27,16 +27,16 @@ public class ExceptionMiddleware
         {
             case NotFoundException notFoundException:
                 statusCode = (int) HttpStatusCode.NotFound;
-                problem = GetProblemDetails("A Not found exception occurred", notFoundException, statusCode,
+                problem = GetProblemDetails("Not found exception", notFoundException, statusCode,
                     nameof(NotFoundException));
                 break;
             case BadRequestException badRequestException:
                 statusCode = (int) HttpStatusCode.BadRequest;
-                problem = GetProblemDetails("A bad request exception occurred", badRequestException, statusCode,
+                problem = GetProblemDetails("Bad request exception", badRequestException, statusCode,
                     nameof(BadRequestException));
                 break;
             default:
-                problem = GetProblemDetails("A server exception occurred", exception, statusCode,
+                problem = GetProblemDetails("Server exception", exception, statusCode,
                     nameof(HttpStatusCode.InternalServerError));
                 break;
         }

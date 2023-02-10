@@ -1,11 +1,13 @@
 // Global using directives
 
 global using System.Reflection;
+global using System.Text.Json.Serialization;
 global using AutoMapper;
 global using FluentValidation;
 global using FluentValidation.Results;
 global using MediatR;
 global using Microsoft.Extensions.DependencyInjection;
+global using ShoppingBasket.Application.Contracts.CurrencyConverter;
 global using ShoppingBasket.Application.Contracts.Persistence;
 global using ShoppingBasket.Application.Contracts.Persistence.Basket;
 global using ShoppingBasket.Application.Contracts.Persistence.Item;

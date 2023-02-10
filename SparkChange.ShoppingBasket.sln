@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.Persistence"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.Api", "src\API\ShoppingBasket.Api\ShoppingBasket.Api.csproj", "{11CA1BEF-6709-4A66-B559-A3381B97385D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.Infrastructure", "src\Infrastructure\ShoppingBasket.Infrastructure\ShoppingBasket.Infrastructure.csproj", "{1B2E8A89-4361-4816-9823-F2F101D0EF85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{11CA1BEF-6709-4A66-B559-A3381B97385D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11CA1BEF-6709-4A66-B559-A3381B97385D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11CA1BEF-6709-4A66-B559-A3381B97385D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2E8A89-4361-4816-9823-F2F101D0EF85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2E8A89-4361-4816-9823-F2F101D0EF85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2E8A89-4361-4816-9823-F2F101D0EF85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2E8A89-4361-4816-9823-F2F101D0EF85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

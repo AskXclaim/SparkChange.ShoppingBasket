@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Core\ShoppingBasket.Application\ShoppingBasket.Application.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\ShoppingBasket.Infrastructure\ShoppingBasket.Infrastructure.csproj" />
       <ProjectReference Include="..\..\Infrastructure\ShoppingBasket.Persistence\ShoppingBasket.Persistence.csproj" />
     </ItemGroup>
 
