@@ -27,7 +27,6 @@
     <ItemGroup>
       <Folder Include="Features\Basket\Commands" />
       <Folder Include="Features\Basket\Queries" />
-      <Folder Include="Features\Item\Queries\GetItems" />
     </ItemGroup>
 
     <ItemGroup>

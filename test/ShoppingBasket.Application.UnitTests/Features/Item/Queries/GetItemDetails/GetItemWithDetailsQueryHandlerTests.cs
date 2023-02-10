@@ -19,8 +19,6 @@ public class GetItemWithDetailsQueryHandlerTests
     [Fact]
     public void Handler_WhenCalledWithFaultyCurrencyCode_ThrowsBadRequestException()
     {
-        var itemRepository = new Mock<IItemRepository>();
-        var currencyConverter = new Mock<ICurrencyConverter>();
         var sut = new GetItemWithDetailsQueryHandler(_mapper, _mockItemRepository.Object,
             _mockCurrencyConverter.Object);
 

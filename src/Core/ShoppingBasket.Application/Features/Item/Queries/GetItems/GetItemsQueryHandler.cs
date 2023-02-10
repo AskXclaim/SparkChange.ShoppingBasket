@@ -18,7 +18,8 @@ public class GetItemsQueryHandler : IRequestHandler<GetItemsQuery, List<ItemDto>
        await FeaturesUtility.ValidateCurrencyCode(request.CurrencyCode);
 
        var items = await _itemRepository.GetItems();
-        if (items == null)
+       //Based on the requirements provided as part of the task there should always be Items.
+        if (items == null || !items.Any())
             throw new NotFoundException($"No {nameof(Domain.Item.Item)}s found");
 
         var itemsDto = new List<ItemDto>();
