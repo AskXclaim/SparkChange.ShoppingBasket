@@ -9,7 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AutoMapper" Version="12.0.0" />
+        <PackageReference Include="MediatR" Version="11.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
         <PackageReference Include="Moq" Version="4.18.4" />
         <PackageReference Include="Shouldly" Version="4.1.0" />
@@ -25,12 +26,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Basket\Commands" />
-      <Folder Include="Features\Basket\Queries" />
+      <Reference Include="Moq">
+        <HintPath>..\..\..\..\..\..\.nuget\packages\moq\4.18.4\lib\net6.0\Moq.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Core\ShoppingBasket.Application\ShoppingBasket.Application.csproj" />
+      <ProjectReference Include="..\..\src\API\ShoppingBasket.Api\ShoppingBasket.Api.csproj" />
       <ProjectReference Include="..\ShoppingBasket.MockData\ShoppingBasket.MockData.csproj" />
     </ItemGroup>
 

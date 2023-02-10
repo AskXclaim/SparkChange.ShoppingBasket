@@ -20,4 +20,5 @@ Soup – $0.65 per tin, Bread – $0.80 per loaf, Milk – $1.15 per bottle, App
 - At times you are required to fill in a currency code which is a three-character [Iso-standard-code](https://en.wikipedia.org/wiki/ISO_4217) for currencies.
 - When asked for a BasketKey you can use alphabetical character and though not case sensitive, each item you add to the Basket is 
 linked to a BasketKey, with the BasketKey needed to access the Basket.
+- This project uses the middleware approach to deal with error handling,
 - Though effort has been put into making this application robust it is by no means production ready.

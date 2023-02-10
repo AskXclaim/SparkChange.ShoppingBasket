@@ -44,7 +44,7 @@ public class GetItemWithDetailsQueryHandlerTests
     public async Task Handler_WhenCalledWithValidIdAndCurrencyCodes_ReturnsExpectedType(string currencyCode)
     {
         _mockItemRepository.Setup(m =>
-            m.GetItemWithDetails(It.IsAny<int>())).ReturnsAsync(MockData.GetItem);
+            m.GetItemWithDetails(It.IsAny<int>())).ReturnsAsync(MockData.MockData.GetItem);
 
         var sut = new GetItemWithDetailsQueryHandler(_mapper, _mockItemRepository.Object,
             _mockCurrencyConverter.Object);

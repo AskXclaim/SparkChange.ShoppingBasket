@@ -14,25 +14,30 @@ public class ItemController : Controller
     }
 
     [HttpGet]
-    public async Task<ItemDetailsDto> GetItem(int itemId, string? currencyCode = "USD")
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesDefaultResponseType]
+    public async Task<ActionResult<ItemDetailsDto>> GetItem(int itemId, string? currencyCode = "USD")
     {
         currencyCode = ControllersUtility.GetCurrencyCode(_configuration, currencyCode);
 
         var item = await _mediator.Send(new GetItemWithDetailsQuery(itemId, currencyCode.ToUpper()));
 
-        return item;
+        return Ok(item);
     }
 
 
     [HttpGet("{currencyCode}")]
-    public async Task<List<ItemDto>> GetAllItems(string? currencyCode = "USD")
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesDefaultResponseType]
+    public async Task<ActionResult<List<ItemDto>>> GetAllItems(string? currencyCode = "USD")
     {
         currencyCode = ControllersUtility.GetCurrencyCode(_configuration, currencyCode);
 
         var items = await _mediator.Send(new GetItemsQuery(currencyCode));
 
-        return items;
+        return Ok(items);
     }
-
-    private string GetDefaultCurrency() => _configuration.GetValue<string>("DefaultCurrencyCode");
 }

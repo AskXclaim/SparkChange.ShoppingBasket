@@ -52,14 +52,14 @@ public class GetItemsQueryHandlerTests
     [Fact]
     public async Task Handler_WhenCalledWithValidUSDRequest_ReturnsExpectedType()
     {
-        _mockItemRepository.Setup(m => m.GetItems()).ReturnsAsync(MockData.GetItems);
+        _mockItemRepository.Setup(m => m.GetItems()).ReturnsAsync(MockData.MockData.GetItems);
 
         var sut = GetSut();
 
         var result = await sut.Handle(new GetItemsQuery("USD"), default);
 
-        AssertValidRequestResult(result, MockData.GetItems()[0].Price, MockData.GetItems()[1].Price,
-            MockData.GetItems()[2].Price);
+        AssertValidRequestResult(result, MockData.MockData.GetItems()[0].Price, MockData.MockData.GetItems()[1].Price,
+            MockData.MockData.GetItems()[2].Price);
     }
 
     [Theory]
@@ -68,7 +68,7 @@ public class GetItemsQueryHandlerTests
     public async Task Handler_WhenCalledWithValidRequest_ReturnsExpectedType(string fromCurrencyCode,
         string toCurrencyCode, decimal convertedPrice)
     {
-        _mockItemRepository.Setup(m => m.GetItems()).ReturnsAsync(MockData.GetItems);
+        _mockItemRepository.Setup(m => m.GetItems()).ReturnsAsync(MockData.MockData.GetItems);
         SetupMockCurrencyConverter(fromCurrencyCode, toCurrencyCode, convertedPrice);
         var sut = GetSut();
 
