@@ -2,6 +2,7 @@ namespace ShoppingBasket.Application.Features.Basket.Queries;
 
 public class BasketItemDto
 {
+    public int Id { get; set; }
     public int ItemId { get; set; }
     public string Name { get; set; } = string.Empty;
     public int Quantity { get; set; }

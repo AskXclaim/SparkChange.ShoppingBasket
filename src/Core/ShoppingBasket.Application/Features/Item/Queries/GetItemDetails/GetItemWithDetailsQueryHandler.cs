@@ -15,6 +15,9 @@ public class GetItemWithDetailsQueryHandler : IRequestHandler<GetItemWithDetails
 
     public async Task<ItemDetailsDto> Handle(GetItemWithDetailsQuery request, CancellationToken cancellationToken)
     {
+        await FeaturesUtility.ValidateCurrencyCode(request.CurrencyCode);
+
+        
         var item = await _itemRepository.GetItemWithDetails(request.Id);
 
         if (item == null)

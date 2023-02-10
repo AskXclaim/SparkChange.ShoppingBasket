@@ -1,4 +1,4 @@
-namespace ShoppingBasket.Application.MappingProfile;
+namespace ShoppingBasket.Application.MappingProfiles;
 
 public class ItemProfile:Profile
 {

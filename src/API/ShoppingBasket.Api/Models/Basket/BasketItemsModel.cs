@@ -1,4 +1,4 @@
-namespace ShoppingBasket.Api.Models;
+namespace ShoppingBasket.Api.Models.Basket;
 
 public class BasketItemsModel
 {

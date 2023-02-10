@@ -15,8 +15,9 @@ public class GetItemsQueryHandler : IRequestHandler<GetItemsQuery, List<ItemDto>
 
     public async Task<List<ItemDto>> Handle(GetItemsQuery request, CancellationToken cancellationToken)
     {
-        var items = await _itemRepository.GetItems();
+       await FeaturesUtility.ValidateCurrencyCode(request.CurrencyCode);
 
+       var items = await _itemRepository.GetItems();
         if (items == null)
             throw new NotFoundException($"No {nameof(Domain.Item.Item)}s found");
 

@@ -32,7 +32,8 @@ public class ExceptionMiddleware
                 break;
             case BadRequestException badRequestException:
                 statusCode = (int) HttpStatusCode.BadRequest;
-                problem = GetProblemDetails("Bad request exception", badRequestException, statusCode,
+                problem = GetProblemDetails("Bad request exception",
+                    new Exception(badRequestException.Errors), statusCode,
                     nameof(BadRequestException));
                 break;
             default:

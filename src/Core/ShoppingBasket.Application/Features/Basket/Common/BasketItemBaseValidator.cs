@@ -7,9 +7,12 @@ public class BasketItemBaseValidator:AbstractValidator<IBasketBaseItem>
     public BasketItemBaseValidator(IItemRepository itemRepository)
     {
         _itemRepository = itemRepository;
+        RuleFor(i => i.ItemId)
+            .NotEmpty()
+            .WithMessage("{PropertyName} must be present");
         RuleFor(i => i)
             .MustAsync(DoesItemExist)
-            .WithMessage("Item does not exist");
+            .WithMessage($"Item does not exist");
     }
 
     private async Task<bool> DoesItemExist(IBasketBaseItem item, CancellationToken token)

@@ -14,22 +14,22 @@ public class ItemController : Controller
     }
 
     [HttpGet]
-    public async Task<ItemDetailsDto> GetItem(int itemId, string? currency = "USD")
+    public async Task<ItemDetailsDto> GetItem(int itemId, string? currencyCode = "USD")
     {
-        if (string.IsNullOrWhiteSpace(currency)) currency = GetDefaultCurrency();
+        currencyCode = ControllersUtility.GetCurrencyCode(_configuration, currencyCode);
 
-        var item = await _mediator.Send(new GetItemWithDetailsQuery(itemId, currency.ToUpper()));
+        var item = await _mediator.Send(new GetItemWithDetailsQuery(itemId, currencyCode.ToUpper()));
 
         return item;
     }
 
 
-    [HttpGet("{currency}")]
-    public async Task<List<ItemDto>> GetAllItems(string? currency = "USD")
+    [HttpGet("{currencyCode}")]
+    public async Task<List<ItemDto>> GetAllItems(string? currencyCode = "USD")
     {
-        if (string.IsNullOrWhiteSpace(currency)) currency = GetDefaultCurrency();
+        currencyCode = ControllersUtility.GetCurrencyCode(_configuration, currencyCode);
 
-        var items = await _mediator.Send(new GetItemsQuery(currency));
+        var items = await _mediator.Send(new GetItemsQuery(currencyCode));
 
         return items;
     }

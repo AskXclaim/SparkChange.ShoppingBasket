@@ -6,23 +6,27 @@ public class BasketController : Controller
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
+    private readonly IConfiguration _configuration;
 
-    public BasketController(IMediator mediator, IMapper mapper)
+    public BasketController(IMediator mediator, IMapper mapper, IConfiguration configuration)
     {
         _mediator = mediator;
         _mapper = mapper;
+        _configuration = configuration;
     }
 
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult<BasketItemModel>> GetItemFromBasket(int itemId, string currencyCode, string basketKey)
+    public async Task<ActionResult<BasketItemModel>> GetItemFromBasket(int itemId, string? currencyCode,
+        string basketKey)
     {
+        currencyCode = ControllersUtility.GetCurrencyCode(_configuration, currencyCode);
         var basketItemDto = await _mediator.Send(new GetItemFromBasketQuery(itemId, currencyCode, basketKey));
 
         var basketItemModel = _mapper.Map<BasketItemModel>(basketItemDto);
-        
+
         return Ok(basketItemModel);
     }
 
@@ -30,8 +34,9 @@ public class BasketController : Controller
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult<BasketItemDto>> GetAllItemsInBasket(string currencyCode, string basketKey)
+    public async Task<ActionResult<BasketItemDto>> GetAllItemsInBasket(string? currencyCode, string basketKey)
     {
+        currencyCode = ControllersUtility.GetCurrencyCode(_configuration, currencyCode);
         var basketItemsDto = await _mediator.Send(new GetAllItemsFromBasketQuery(currencyCode, basketKey));
         var items = _mapper.Map<List<BasketItemModel>>(basketItemsDto);
         var basketItemsModel = new BasketItemsModel

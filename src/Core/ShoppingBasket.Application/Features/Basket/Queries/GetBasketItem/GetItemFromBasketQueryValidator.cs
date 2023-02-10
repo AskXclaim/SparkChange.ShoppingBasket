@@ -1,4 +1,4 @@
-namespace ShoppingBasket.Application.Features.Basket.Queries.GetItem;
+namespace ShoppingBasket.Application.Features.Basket.Queries.GetBasketItem;
 
 public class GetItemFromBasketQueryValidator: AbstractValidator<GetItemFromBasketQuery>
 {
