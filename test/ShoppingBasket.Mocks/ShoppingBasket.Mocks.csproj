@@ -4,11 +4,17 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>ShoppingBasket.MockData</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\src\API\ShoppingBasket.Api\ShoppingBasket.Api.csproj" />
       <ProjectReference Include="..\..\src\Core\ShoppingBasket.Application\ShoppingBasket.Application.csproj" />
       <ProjectReference Include="..\..\src\Core\ShoppingBasket.Domain\ShoppingBasket.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Moq" Version="4.18.4" />
     </ItemGroup>
 
 </Project>

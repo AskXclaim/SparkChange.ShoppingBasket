@@ -8,10 +8,7 @@ public class GetItemWithDetailsQueryHandlerTests
 
     public GetItemWithDetailsQueryHandlerTests()
     {
-        var mapperConfiguration = new MapperConfiguration(c =>
-            c.AddProfile<ItemProfile>());
-        _mapper = mapperConfiguration.CreateMapper();
-
+        _mapper =MockConfiguration.GetMapper<ItemProfile>();
         _mockItemRepository = new Mock<IItemRepository>();
         _mockCurrencyConverter = new Mock<ICurrencyConverter>();
     }

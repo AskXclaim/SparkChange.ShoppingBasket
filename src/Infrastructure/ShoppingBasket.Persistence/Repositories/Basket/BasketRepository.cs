@@ -31,12 +31,13 @@ public class BasketRepository : IBasketRepository
         if (request.Quantity == 0)
             await RemoveItemFromBasketAsync(request.ItemId, request.ShoppingBasketKey);
 
-        var isAvailable = await _context.BasketItems.AnyAsync(
+        var item = await _context.BasketItems.FirstOrDefaultAsync(
             bi => bi.ShoppingBasketKey.Equals(request.ShoppingBasketKey, StringComparison.OrdinalIgnoreCase)
                   && bi.ItemId == request.ItemId);
-        if (isAvailable)
+        if (item !=null)
         {
-            _context.BasketItems.Update(GetBasketItem(request, request.ShoppingBasketKey));
+            item.Quantity = request.Quantity;
+            _context.BasketItems.Update(item);
         }
         else
         {
@@ -52,7 +53,7 @@ public class BasketRepository : IBasketRepository
         => new()
         {
             ItemId = request.ItemId, ShoppingBasketKey = basketKey,
-            CurrencyCode = request.CurrencyCode, Quantity = request.Quantity,
+            CurrencyCode = "USD", Quantity = request.Quantity,
             Name = request.Name, Price = request.Price
         };
 

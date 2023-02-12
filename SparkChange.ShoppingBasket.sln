@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.Application.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.Api.UnitTests", "test\ShoppingBasket.Api.UnitTests\ShoppingBasket.Api.UnitTests.csproj", "{D66D6BEB-74FD-401B-BE6C-30B648CCCB00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.MockData", "test\ShoppingBasket.MockData\ShoppingBasket.MockData.csproj", "{311A2AA6-974C-4969-B4A3-0FEF34B3DB9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingBasket.Mocks", "test\ShoppingBasket.Mocks\ShoppingBasket.Mocks.csproj", "{311A2AA6-974C-4969-B4A3-0FEF34B3DB9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

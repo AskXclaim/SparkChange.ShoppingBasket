@@ -34,7 +34,7 @@ public class BasketController : Controller
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult<BasketItemDto>> GetAllItemsInBasket(string? currencyCode, string basketKey)
+    public async Task<ActionResult<BasketItemsModel>> GetAllItemsInBasket(string? currencyCode, string basketKey)
     {
         currencyCode = ControllersUtility.GetCurrencyCode(_configuration, currencyCode);
         var basketItemsDto = await _mediator.Send(new GetAllItemsFromBasketQuery(currencyCode, basketKey));

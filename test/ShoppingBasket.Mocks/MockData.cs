@@ -1,3 +1,5 @@
+using ShoppingBasket.Api.Models.Basket;
+using ShoppingBasket.Application.Features.Basket.Queries;
 using ShoppingBasket.Application.Features.Item.Queries.GetItemDetails;
 using ShoppingBasket.Application.Features.Item.Queries.GetItems;
 using ShoppingBasket.Domain.Item;
@@ -10,7 +12,7 @@ public static class MockData
     {
         Id = 1, Name = "Apples", Description = "Description", CurrencyCode = "USD", Price = 1.00m
     };
-    
+
     public static List<Item> GetItems() => new()
     {
         new Item()
@@ -50,4 +52,29 @@ public static class MockData
             },
         };
     }
+
+    public static BasketItemDto GetBasketItemDto() => new()
+    {
+        BasketKey = "BasketKey", CurrencyCode = "USD", ItemId = 1,
+        Name = "Apple", Price = 0.90m, Quantity = 2
+    };
+
+    public static List<BasketItemDto> GetBasketItemsDto() => new()
+    {
+        new()
+        {
+            BasketKey = "BasketKey", CurrencyCode = "USD", ItemId = 1,
+            Name = "Apple", Price = 0.90m, Quantity = 1
+        },
+        new()
+        {
+            BasketKey = "BasketKey", CurrencyCode = "USD", ItemId = 2,
+            Name = "Soup", Price = 0.70m, Quantity = 2
+        },
+        new()
+        {
+            BasketKey = "BasketKey", CurrencyCode = "USD", ItemId = 2,
+            Name = "Bread", Price = 0.80m, Quantity = 3
+        }
+    };
 }
