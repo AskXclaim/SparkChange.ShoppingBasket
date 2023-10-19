@@ -8,5 +8,6 @@ public class BasketItemModel
     public decimal Price { get; set; }
     public string BasketKey { get; set; } = string.Empty;
     public string CurrencyCode { get; set; } = string.Empty;
+    public string Coupon { get; set; } = string.Empty;
     public decimal TotalPrice { get; set; }
 }

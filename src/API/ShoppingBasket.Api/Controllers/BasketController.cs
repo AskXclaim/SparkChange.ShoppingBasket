@@ -26,6 +26,7 @@ public class BasketController : Controller
         var basketItemDto = await _mediator.Send(new GetItemFromBasketQuery(itemId, currencyCode, basketKey));
 
         var basketItemModel = _mapper.Map<BasketItemModel>(basketItemDto);
+        
 
         return Ok(basketItemModel);
     }

@@ -38,6 +38,12 @@ public class GetItemFromBasketQueryHandler : IRequestHandler<GetItemFromBasketQu
         basketItemDto.CurrencyCode = request.CurrencyCode;
         basketItemDto.Price = convertedPrice;
 
+        if (!string.IsNullOrWhiteSpace(item.Coupon))
+        {
+            //Get new total price 
+            basketItemDto.TotalPrice = 0M;  // Fit new total price
+        }
+
         return basketItemDto;
     }
 }
